@@ -57,7 +57,6 @@ public abstract class Application {
 
     @Override
     public String toString(){
-        return "A " + type + " Wich will be a " + subtype +
-                ". It should take arround "+ timeTakes + " days to make.";
+        return type + " "+ subtype + ",  " + basicPrice + " of monetary value";
     }
 }

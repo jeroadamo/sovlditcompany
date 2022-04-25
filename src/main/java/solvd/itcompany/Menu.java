@@ -64,7 +64,7 @@ public class Menu {
         jd1.assignment(true, game1);
 
         QualityAssurancer qa1 = new QualityAssurancer(750, "Peter", 2238465, 26);
-        qa1.testing(gdg2,qa1,false);
+        qa1.testing(gdg2, qa1, false);
         qa1.testing(game2, qa1, true);
 
         gdg2.testing(gdg2, qa1, true);
@@ -75,7 +75,7 @@ public class Menu {
             LOGGER.error(e);
         }
         try {
-            sd2.frustration(sd2,true);
+            sd2.frustration(sd2, true);
         } catch (CannotWorkException e) {
             LOGGER.error(e);
         }
@@ -87,9 +87,14 @@ public class Menu {
 
         Database database = new Database();
 
-        //database.getMoneyMadeFromApllications().get(game1.getBasicPrice());
-        //database.getMoneyMadeFromApllications().get(game2.getBasicPrice());
+        database.getApplications().add(game1);
+        database.getApplications().add(game2);
+        database.getApplications().add(gdg1);
+        database.printAppsDeveloped();
 
+        database.getPasswords().put(c1.getusername(), "password12");
+        database.getPasswords().put(c2.getusername(), "password66" );
+        database.printPasswords();
 
         GitHub game1Git = GitHub.MOBA1;
         database.ongoingProjects(GitHub.MOBA1);
@@ -103,7 +108,20 @@ public class Menu {
         } catch (FiredException e) {
             LOGGER.error(e);
         }
-        Budget budget = new Budget();
+
+
+        Budget budget = new Budget(450000);
+
+
+        IAdd add = (a, b) -> Integer.sum(a, b);
+
+        budget.setCompanyBudget(add.addition(budget.getCompanyBudget(), game1.getBasicPrice()));
+        budget.setCompanyBudget(add.addition(budget.getCompanyBudget(), game2.getBasicPrice()));
+        budget.setCompanyBudget(add.addition(budget.getCompanyBudget(), gdg1.getBasicPrice()));
+
+        LOGGER.info("This app moneymade has been added to the company budget! Company's savings rise now to: "+ budget );
+
+
 
     }
 }
