@@ -32,7 +32,7 @@ public class Customer extends Person {
         }
     }
 
-    public String getusername() {
+    public String getUsername() {
         return username;
     }
 

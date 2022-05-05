@@ -1,24 +1,20 @@
 package solvd.itcompany.codeable;
 
-
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 public class Game extends Application implements Instalable {
 
     private static final Logger log = LogManager.getLogger(Game.class);
     private double gameDuration;
     private boolean multiplayer;
-    private String dificulty;
+    private String difficulty;
 
-
-    public Game(int basicprice, String type, String subtype, int timetakes, double gameDuration, boolean multiplayer, String dificulty) {
-        super(basicprice, type, subtype, timetakes);
+    public Game(int basicPrice, int timeTakes, double gameDuration, boolean multiplayer) {
+        super(basicPrice, timeTakes);
         this.gameDuration = gameDuration;
         this.multiplayer = multiplayer;
-        this.dificulty = dificulty;
+
     }
 
     public double GameDuration() {
@@ -37,14 +33,6 @@ public class Game extends Application implements Instalable {
         this.multiplayer = multiplayer;
     }
 
-    public String Dificulty() {
-        return dificulty;
-    }
-
-    public String setDificulty(String dificulty) {
-        return dificulty;
-    }
-
     @Override
     public void installation(boolean meetsRequirements, String deviceName) {
         if (meetsRequirements) {
@@ -55,5 +43,11 @@ public class Game extends Application implements Instalable {
 
     }
 
+    public String getDifficulty() {
+        return difficulty;
+    }
 
+    public void assignDifficulty(Difficulties diffs) {
+        this.difficulty = diffs.name();
+    }
 }

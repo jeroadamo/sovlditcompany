@@ -6,11 +6,8 @@ public abstract class Application {
     private String subtype;
     private int timeTakes;
 
-
-    public Application(int basicPrice, String type, String subtype, int timeTakes) {
+    public Application(int basicPrice, int timeTakes) {
         this.basicPrice = basicPrice;
-        this.type = type;
-        this.subtype = subtype;
         this.timeTakes = timeTakes;
     }
 
@@ -51,12 +48,16 @@ public abstract class Application {
         this.timeTakes = timeTakes;
     }
 
-
-
-
-
     @Override
-    public String toString(){
-        return type + " "+ subtype + ",  " + basicPrice + " of monetary value";
+    public String toString() {
+        return type + " " + subtype + ",  " + basicPrice + " of monetary value";
+    }
+
+    public void assignType(TypeAndSubtypes types) {
+        this.type = types.name();
+    }
+
+    public void assingSubType(TypeAndSubtypes sTypes) {
+        this.subtype = sTypes.name();
     }
 }

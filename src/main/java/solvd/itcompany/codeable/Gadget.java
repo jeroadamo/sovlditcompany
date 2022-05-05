@@ -1,8 +1,8 @@
 package solvd.itcompany.codeable;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.itcompany.person.QualityAssurancer;
-
 
 public class Gadget extends Application implements Instalable, ITest {
     private static final Logger log = LogManager.getLogger(Gadget.class);
@@ -10,8 +10,8 @@ public class Gadget extends Application implements Instalable, ITest {
     private boolean forAndroid;
     private boolean internetConnection;
 
-    public Gadget(int basicPrice, String type, String subtype, int timeTakes, boolean forAndroid, boolean internetConnection) {
-        super(basicPrice, type, subtype, timeTakes);
+    public Gadget(int basicPrice, int timeTakes, boolean forAndroid, boolean internetConnection) {
+        super(basicPrice, timeTakes);
         this.forAndroid = forAndroid;
         this.internetConnection = internetConnection;
     }
@@ -44,9 +44,9 @@ public class Gadget extends Application implements Instalable, ITest {
     @Override
     public void testing(Application app, QualityAssurancer qa, boolean passedCheck) {
         log.info("This qa just tested this app ");
-        if(passedCheck){
-            log.info("and it works just fine!");}
-        else{
+        if (passedCheck) {
+            log.info("and it works just fine!");
+        } else {
             log.info("and it needs to be fixed.");
         }
     }

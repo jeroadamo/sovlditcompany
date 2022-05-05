@@ -4,10 +4,9 @@ public class Budget {
 
     int companyBudget;
 
-    public Budget(int companyBudget){
+    public Budget(int companyBudget) {
         this.companyBudget = companyBudget;
     }
-
 
     public int getCompanyBudget() {
         return companyBudget;
@@ -18,7 +17,7 @@ public class Budget {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Company budget: " + companyBudget;
     }
 
